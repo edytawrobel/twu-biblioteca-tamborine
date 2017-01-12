@@ -30,6 +30,10 @@ public class Book {
     }
 
     public void checkOut() {
-        checkedOut = !checkedOut;
+        checkedOut = true;
+    }
+
+    public void returnBook() {
+        checkedOut = false;
     }
 }
