@@ -13,6 +13,7 @@ public class MainMenu {
 
     public MainMenu() {
         options = new ArrayList<String>();
+        options.add("List Books");
     }
 
     public ArrayList<String> showOptions() {
