@@ -8,11 +8,11 @@ How to run this code:
 - run with `java BibliotecaApp`
 
 
-******User stories****   **
+*****User stories****
 * **Welcome Message**  
 - [x] As a customer, I would like to see a welcome message when I start the application, so that I feel welcome and know that Biblioteca is available.
 * **Main Menu** 
-- [ ] As a customer, instead of automatically seeing the book list, I would like to see a list of options and be able to choose one. 
+- [...] As a customer, instead of automatically seeing the book list, I would like to see a list of options and be able to choose one. 
 - [x] For now, the only option should be 'List Books'. All future options should be added to this menu also.
 * **Quit** 
 - [ ] As a customer, I would like to continue choosing options until I choose to 'Quit'.

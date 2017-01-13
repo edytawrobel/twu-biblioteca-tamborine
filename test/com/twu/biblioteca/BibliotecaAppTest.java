@@ -4,6 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -32,6 +35,17 @@ public class BibliotecaAppTest {
         assertEquals(bookList, app.listBooks());
     }
 
+    @Test
+    public void menuOptionsArePresentedUntilUserQuits() throws Exception {
+        MainMenu menuMockSoonToBe = new MainMenu();
+        //how to test this????
+    }
 
+    @Test
+    public void userCanChooseASelection() throws Exception {
+        InputStream in = new ByteArrayInputStream("List Books".getBytes());
+        System.setIn(in);
+        assertEquals("List Books", app.getInput());
+    }
 
 }
