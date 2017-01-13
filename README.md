@@ -2,7 +2,8 @@ Biblioteca
 =================================================
 
 How to run this code:
-- navigate to a directory in terminal where you want to store this repo and run `git clone https://github.com/tam-borine/twu-biblioteca-tamborine.git`
+- navigate to a directory in terminal where you want to store this repo and run:
+ `git clone https://github.com/tam-borine/twu-biblioteca-tamborine.git`
 - compile with `javac BibliotecaApp.java`
 - run with `java BibliotecaApp`
 

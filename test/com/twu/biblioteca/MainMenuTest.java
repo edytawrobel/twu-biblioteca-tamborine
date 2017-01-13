@@ -38,4 +38,10 @@ public class MainMenuTest {
         assert(mainMenu.showOptions().contains("List Books"));
     }
 
+    @Test
+    public void menuOptionCanBeSelected() throws Exception {
+        String someBookObjMock = "replace me with a new Book() mock";
+        assertEquals(someBookObjMock, mainMenu.selectOption(someBookObjMock));
+    }
+
 }

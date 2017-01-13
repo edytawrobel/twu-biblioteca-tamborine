@@ -24,5 +24,10 @@ public class MainMenu {
         options.add(newMenuOption);
     }
 
+    public String selectOption(String someBookObjMock) {
+        return someBookObjMock;
+        //for now... will be a Book() from bookList at some point
+    }
+
     //a selectOption(option) method is in order
 }
