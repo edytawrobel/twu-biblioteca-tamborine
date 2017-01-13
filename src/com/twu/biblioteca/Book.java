@@ -7,9 +7,9 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
  */
 public class Book {
 
-    String author;
-    String datePublished;
-    Boolean checkedOut;
+    private final String author;
+    private final String datePublished;
+    private Boolean checkedOut;
 
     public Book(String initialAuthor, String initialDatePublished){
         author = initialAuthor;
