@@ -15,7 +15,7 @@ public class MainMenuTest {
     private MainMenu mainMenu;
 
     @Before
-    public void makeNewMainMenuInstanceForEachTest(){
+    public void setup(){
        mainMenu = new MainMenu();
     }
 

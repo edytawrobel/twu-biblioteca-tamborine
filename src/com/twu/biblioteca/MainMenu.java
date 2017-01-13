@@ -24,4 +24,5 @@ public class MainMenu {
         options.add(newMenuOption);
     }
 
+    //a selectOption(option) method is in order
 }

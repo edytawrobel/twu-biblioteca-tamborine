@@ -12,8 +12,8 @@ public class BookTest {
     private Book book;
 
     @Before
-    public void giveFollowingObjectsToEachTest(){
-       book = new Book("George Orwell", "1949");
+    public void setup(){
+        book = new Book("George Orwell", "1949");
     }
 
     @Test
