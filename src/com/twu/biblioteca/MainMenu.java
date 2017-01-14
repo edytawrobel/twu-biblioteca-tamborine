@@ -21,13 +21,13 @@ public class MainMenu {
     }
 
     public void addOption(String newMenuOption) {
+
         options.add(newMenuOption);
     }
 
-    public String selectOption(String someBookObjMock) {
-        return someBookObjMock;
-        //for now... will be a Book() from bookList at some point
+    public String selectOption(String someOptionObjMock) {
+        return someOptionObjMock;
+        //for now... will be a Option() from bookList at some point
     }
 
-    //a selectOption(option) method is in order
 }

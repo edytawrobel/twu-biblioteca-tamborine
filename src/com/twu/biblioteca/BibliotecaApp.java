@@ -4,15 +4,17 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class BibliotecaApp {
 
     ArrayList<String> bookList;
-    String userInput;
+    MainMenu menu;
 
-    public BibliotecaApp() {
+    public BibliotecaApp(MainMenu menu) {
         bookList = new ArrayList<String>();
+        this.menu = menu;
         bookList.add("first book");
     }
 
@@ -26,30 +28,27 @@ public class BibliotecaApp {
     }
 
     public ArrayList<String> listBooks() {
-        bookList.add("a book");
         return bookList;
     }
 
-    public String presentMenuOptionsUntilUserQuits() {
-        MainMenu menu = new MainMenu();
-        Scanner sc = new Scanner(System.in);
-        //inject the above ?
-        System.out.println("Enter an option in the list or 'quit'");
-        String input = sc.nextLine();
-        while (!input.equals("quit")) {
-            userInput = menu.selectOption(input);
-            input = sc.nextLine();
+    public String presentMenuOptionsUntilUserQuits(InputStream in) {
+        Scanner sc = new Scanner(in);
+        String userInput;
+        String optionChosen;
+        do {
             System.out.println("Enter an option in the list or 'quit'");
-        }
-        return userInput;
+            userInput = getInput(sc);
+            optionChosen = menu.selectOption(userInput);
+        } while (!userInput.equals("quit"));
+
+        return optionChosen;
     }
 
-    public String userInputGetter() {
-        return userInput;
-    }
+//    public String userInputGetter() {
+//        return userInput;
+//    }
 
-    public String getInput() {
-        Scanner sc = new Scanner(System.in);
+    public String getInput(Scanner sc) {
         return sc.nextLine();
     }
 }

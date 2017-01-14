@@ -40,7 +40,7 @@ public class MainMenuTest {
 
     @Test
     public void menuOptionCanBeSelected() throws Exception {
-        String someBookObjMock = "replace me with a new Book() mock";
+        String someBookObjMock = "replace me with a new Option() mock";
         assertEquals(someBookObjMock, mainMenu.selectOption(someBookObjMock));
     }
 
