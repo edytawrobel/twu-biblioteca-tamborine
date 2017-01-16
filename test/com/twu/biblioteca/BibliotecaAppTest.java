@@ -5,15 +5,13 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.mockito.Mock;
-import static org.mockito.Mockito.*;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import static org.junit.matchers.JUnitMatchers.hasItem;
+import static org.mockito.Mockito.*;
+
+import java.io.*;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -22,12 +20,11 @@ import static org.junit.Assert.*;
  */
 public class BibliotecaAppTest {
 
-    BibliotecaApp app;
-
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
     @Mock MainMenu menu;
+    BibliotecaApp app;
 
     @Before
     public void setUp() throws Exception {
@@ -54,6 +51,17 @@ public class BibliotecaAppTest {
     }
 
     @Test
+    public void weCanOutputMessagesToUser() {
+        InputStream in = new ByteArrayInputStream("some INVALID input\nquit".getBytes());
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        app.presentMenuOptionsUntilUserQuits(in);
+        String expectedOutput  = "Enter an option in the list or 'quit'\ninvalid option try again\nEnter an option in the list or 'quit'\n";
+        // Notice the \n for new line. PAULO HELP THE ABOVE LINE IS REALLY UGLY...
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
     public void noSuchElementExceptionIsThrownWhenUserDoesNotQuit() throws NoSuchElementException {
         InputStream in = new ByteArrayInputStream("some input".getBytes());
         exception.expect(NoSuchElementException.class); //line before line that will throw exception
@@ -70,20 +78,11 @@ public class BibliotecaAppTest {
     public void presentMethodCallsSelectOption() {
         InputStream in = new ByteArrayInputStream("List Books\nquit".getBytes());
         when(menu.optionIsValid(anyString())).thenReturn(true);
-
         app.presentMenuOptionsUntilUserQuits(in);
         //verify selectOption has been called with args:
         verify(menu).selectOption("List Books");
         verify(menu).selectOption("quit");
     }
-
-    @Test
-    public void warningIsShownWhenInvalidOptionChosen() throws RuntimeException {
-        InputStream in = new ByteArrayInputStream("some invalid option".getBytes());
-        assertEquals("invalid option try again",app.presentMenuOptionsUntilUserQuits(in));
-
-    }
-
 
 
 }

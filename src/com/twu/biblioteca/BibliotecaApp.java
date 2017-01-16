@@ -4,6 +4,7 @@ import sun.applet.Main;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -38,12 +39,12 @@ public class BibliotecaApp {
         String userInput;
         String optionChosen = "" ;
         do {
-            System.out.println("Enter an option in the list or 'quit'");
+            printOut(System.out, "Enter an option in the list or 'quit'");
             userInput = getInput(sc);
-            if (validInput(menu, userInput)) {
+            if (menu.optionIsValid(userInput) || userInput.equals("quit")) {
                 optionChosen = menu.selectOption(userInput);
             } else {
-                System.out.println("invalid option try again");
+                printOut(System.out, "invalid option try again");
                 continue;
             }
         } while (!userInput.equals("quit"));
@@ -51,10 +52,13 @@ public class BibliotecaApp {
         return optionChosen;
     }
 
-    private boolean validInput(MainMenu menu, String input) {
-        return  menu.optionIsValid(input) || input.equals("quit");
-    }
+//    private boolean validInput(MainMenu menu, String input) {
+//        return  ;
+//    }
 
+    public void printOut(PrintStream out, String textToPrint) {
+        out.println(textToPrint);
+    }
 
     public String getInput(Scanner sc) {
         return sc.nextLine();

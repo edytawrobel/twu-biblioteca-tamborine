@@ -17,7 +17,7 @@ How to run this code:
 * **Quit** 
 - [x] As a customer, I would like to continue choosing options until I choose to 'Quit'.
 * **Invalid Menu Option** 
-- [ ] As a customer, I would like to be notified when I choose an invalid option with the message “Select a valid option!”, so that I can know when I need to re-enter my choice.
+- [...] As a customer, I would like to be notified when I choose an invalid option with the message “Select a valid option!”, so that I can know when I need to re-enter my choice.
 
 * **List Books** 
 - [ ] As a customer, after the welcome message appears I would like to see a list of all library books, so that I can browse for books I might want to check-out. 
