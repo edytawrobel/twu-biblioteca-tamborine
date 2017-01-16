@@ -23,11 +23,13 @@ public class Library {
 
     public void printBooksPretty() {
         for (int i = 0; i < books.size(); i++) {
-            System.out.println(books.get(i));
+            Book book = books.get(i);
+            System.out.format("%32s%32s%8s", book.getTitle(), book.getAuthor(), book.getDatePublished());
+            //we can make this prettier for sure but it is boring - later
         }
     }
 
 }
 
 
-//        System.out.format("%32s%10d%16s", string1, int1, string2);
+//        System.out.format(, string1, int1, string2);

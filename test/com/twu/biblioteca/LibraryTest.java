@@ -56,8 +56,8 @@ public class LibraryTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         library.printBooksPretty();
-        String expectedOutput  = "1984, George Orwell\nHave a good day, Me\n";
-        assertEquals(expectedOutput, outContent.toString());
+        String expectedOutputSubstr  = "nineteenEightyFour";
+        assertTrue(outContent.toString().contains(expectedOutputSubstr));
     }
 
 }

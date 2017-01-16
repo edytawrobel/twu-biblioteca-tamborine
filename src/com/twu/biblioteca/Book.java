@@ -27,6 +27,10 @@ public class Book {
         return datePublished;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public Boolean isCheckedOut() {
         return checkedOut;
     }
