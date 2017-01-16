@@ -55,7 +55,7 @@ public class BibliotecaAppTest {
         InputStream in = new ByteArrayInputStream("some INVALID input\nquit".getBytes());
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        app.presentMenuOptionsUntilUserQuits(in);
+        app.askUserToSelectOptionUntilQuits(in);
         String expectedOutput  = "Enter an option in the list or 'quit'\ninvalid option try again\nEnter an option in the list or 'quit'\n";
         // Notice the \n for new line. PAULO HELP THE ABOVE LINE IS REALLY UGLY...
         assertEquals(expectedOutput, outContent.toString());
@@ -65,20 +65,20 @@ public class BibliotecaAppTest {
     public void noSuchElementExceptionIsThrownWhenUserDoesNotQuit() throws NoSuchElementException {
         InputStream in = new ByteArrayInputStream("some input".getBytes());
         exception.expect(NoSuchElementException.class); //line before line that will throw exception
-        app.presentMenuOptionsUntilUserQuits(in); //should throw exception
+        app.askUserToSelectOptionUntilQuits(in); //should throw exception
     }
 
     @Test
     public void noExceptionIsThrownWhenUserQuits() {
         InputStream in = new ByteArrayInputStream("quit".getBytes());
-        app.presentMenuOptionsUntilUserQuits(in);
+        app.askUserToSelectOptionUntilQuits(in);
     }
 
     @Test
-    public void presentMethodCallsSelectOption() {
+    public void askUserToSelectOptionUntilQuitsGivesUserInputToMenuToSelectOption() {
         InputStream in = new ByteArrayInputStream("List Books\nquit".getBytes());
         when(menu.optionIsValid(anyString())).thenReturn(true);
-        app.presentMenuOptionsUntilUserQuits(in);
+        app.askUserToSelectOptionUntilQuits(in);
         //verify selectOption has been called with args:
         verify(menu).selectOption("List Books");
         verify(menu).selectOption("quit");
@@ -91,5 +91,5 @@ public class BibliotecaAppTest {
 
 /// available in junit 4.13 version BUT it's unstable atm:
 //    assertThrows(NoSuchElementException.class,
-//                () -> app.presentMenuOptionsUntilUserQuits(in));
+//                () -> app.askUserToSelectOptionUntilQuits(in));
 //}

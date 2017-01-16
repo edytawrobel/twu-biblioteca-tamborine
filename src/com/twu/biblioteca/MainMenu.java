@@ -14,6 +14,8 @@ public class MainMenu {
     public MainMenu() {
         options = new ArrayList<String>();
         options.add("List Books");
+        options.add("Checkout Book");
+        options.add("Return Book");
     }
 
     public ArrayList<String> showOptions() {
@@ -21,7 +23,6 @@ public class MainMenu {
     }
 
     public void addOption(String newMenuOption) {
-
         options.add(newMenuOption);
     }
 

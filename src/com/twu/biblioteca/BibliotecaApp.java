@@ -34,7 +34,7 @@ public class BibliotecaApp {
         return bookList;
     }
 
-    public String presentMenuOptionsUntilUserQuits(InputStream in) {
+    public String askUserToSelectOptionUntilQuits(InputStream in) {
         Scanner sc = new Scanner(in);
         String userInput;
         String optionChosen = "" ;
@@ -51,10 +51,6 @@ public class BibliotecaApp {
 
         return optionChosen;
     }
-
-//    private boolean validInput(MainMenu menu, String input) {
-//        return  ;
-//    }
 
     public void printOut(PrintStream out, String textToPrint) {
         out.println(textToPrint);

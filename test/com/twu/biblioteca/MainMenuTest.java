@@ -21,8 +21,8 @@ public class MainMenuTest {
 
     @Test
     public void menuCanShowOptions() throws Exception {
-        String[] options = {"List Books"};
-        assertEquals(options, mainMenu.showOptions());
+        String mandatoryOption = "List Books";
+        assertTrue(mainMenu.showOptions().contains(mandatoryOption));
     }
 
     @Test
