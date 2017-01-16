@@ -75,7 +75,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void askUserToSelectOptionUntilQuitsGivesUserInputToMenuToSelectOption() {
+    public void askUserToSelectOptionUntilQuitsMethodGivesUserInputToMenuToSelectOption() {
         InputStream in = new ByteArrayInputStream("List Books\nquit".getBytes());
         when(menu.optionIsValid(anyString())).thenReturn(true);
         app.askUserToSelectOptionUntilQuits(in);

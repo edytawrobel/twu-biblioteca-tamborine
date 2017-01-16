@@ -6,6 +6,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -33,6 +36,16 @@ public class LibraryTest {
     @Test
     public void hasListableBooks() {
         assertTrue(library.listBooks().contains("1984, George Orwell"));
+    }
+
+    @Test
+    public void booksCanBePrintedInPrettyTable() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        library.printBooksPretty();
+        String expectedOutput  = "1984, George Orwell\nHave a good day, Me\n";
+        assertEquals(expectedOutput, outContent.toString());
+
     }
 
 }
