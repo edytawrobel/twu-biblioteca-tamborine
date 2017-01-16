@@ -30,4 +30,7 @@ public class MainMenu {
         //for now... will be a Option() from bookList at some point
     }
 
+    public boolean optionIsValid(String input) {
+        return options.contains(input);
+    }
 }

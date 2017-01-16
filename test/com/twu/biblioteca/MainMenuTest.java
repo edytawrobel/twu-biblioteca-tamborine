@@ -44,4 +44,12 @@ public class MainMenuTest {
         assertEquals(someBookObjMock, mainMenu.selectOption(someBookObjMock));
     }
 
+    @Test
+    public void menuOptionIsValid() {
+        String someInvalidInput = "something horrible we do not want to break things";
+        assertEquals(false,mainMenu.optionIsValid(someInvalidInput));
+        String someValidInput = "List Books";
+        assertEquals(true,mainMenu.optionIsValid(someValidInput));
+    }
+
 }

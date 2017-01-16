@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import sun.applet.Main;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -34,21 +36,30 @@ public class BibliotecaApp {
     public String presentMenuOptionsUntilUserQuits(InputStream in) {
         Scanner sc = new Scanner(in);
         String userInput;
-        String optionChosen;
+        String optionChosen = "" ;
         do {
             System.out.println("Enter an option in the list or 'quit'");
             userInput = getInput(sc);
-            optionChosen = menu.selectOption(userInput);
+            if (validInput(menu, userInput)) {
+                optionChosen = menu.selectOption(userInput);
+            } else {
+                System.out.println("invalid option try again");
+                continue;
+            }
         } while (!userInput.equals("quit"));
 
         return optionChosen;
     }
 
-//    public String userInputGetter() {
-//        return userInput;
-//    }
+    private boolean validInput(MainMenu menu, String input) {
+        return  menu.optionIsValid(input) || input.equals("quit");
+    }
+
 
     public String getInput(Scanner sc) {
         return sc.nextLine();
     }
+
 }
+
+

@@ -65,15 +65,26 @@ public class BibliotecaAppTest {
         InputStream in = new ByteArrayInputStream("quit".getBytes());
         app.presentMenuOptionsUntilUserQuits(in);
     }
-    //test that presentMethod... calls all of the above
+
     @Test
     public void presentMethodCallsSelectOption() {
-        InputStream in = new ByteArrayInputStream("list books\nquit".getBytes());
+        InputStream in = new ByteArrayInputStream("List Books\nquit".getBytes());
+        when(menu.optionIsValid(anyString())).thenReturn(true);
+
         app.presentMenuOptionsUntilUserQuits(in);
-        //verify selectOption has been called
-        verify(menu).selectOption("list books");
+        //verify selectOption has been called with args:
+        verify(menu).selectOption("List Books");
         verify(menu).selectOption("quit");
     }
+
+    @Test
+    public void warningIsShownWhenInvalidOptionChosen() throws RuntimeException {
+        InputStream in = new ByteArrayInputStream("some invalid option".getBytes());
+        assertEquals("invalid option try again",app.presentMenuOptionsUntilUserQuits(in));
+
+    }
+
+
 
 }
 
