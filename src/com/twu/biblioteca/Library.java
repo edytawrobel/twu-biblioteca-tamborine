@@ -1,24 +1,29 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by tam on 16/01/2017.
  */
 public class Library {
 
-    ArrayList<Book> books;
+    List<Book> books;
     Book nineteenEightyFour;
 
     public Library() {
         books = new ArrayList<Book>();
         nineteenEightyFour = new Book("GeorgeOrwell", "1984", "nineteenEightyFour");
         books.add(nineteenEightyFour);
-
     }
 
-    public ArrayList<Book> listBooks() {
-        return books;
+    public List<Book> listBooks() {
+        return filterBooks(books);
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
     }
 
     public void printBooksPretty() {
@@ -29,6 +34,11 @@ public class Library {
         }
     }
 
+    private List<Book> filterBooks(List<Book> books) {
+        return books.stream()
+                .filter(bk -> !bk.isCheckedOut())
+                .collect(Collectors.toList());
+    }
 }
 
 

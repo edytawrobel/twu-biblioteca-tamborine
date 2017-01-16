@@ -9,6 +9,7 @@ import org.mockito.MockitoAnnotations;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;
@@ -20,7 +21,6 @@ import static org.mockito.Mockito.*;
 public class LibraryTest {
 
     Library library;
-    Book nineteenEightyFour;
 
     @Mock
     Book book;
@@ -29,7 +29,6 @@ public class LibraryTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        nineteenEightyFour = new Book("GeorgeOrwell", "1984", "nineteenEightyFour");
 
         library = new Library();
     }
@@ -39,7 +38,8 @@ public class LibraryTest {
 
     }
 
-    public boolean containsInstancesOfBook(ArrayList<Book> collection) {
+    //helper method, move me?:
+    public boolean containsInstancesOfBook(List<Book> collection) {
         for(Book book : collection){
             if (book instanceof Book) return true;
         }
@@ -59,5 +59,22 @@ public class LibraryTest {
         String expectedOutputSubstr  = "nineteenEightyFour";
         assertTrue(outContent.toString().contains(expectedOutputSubstr));
     }
+
+    @Test
+    public void checkedOutBooksDoNotAppearInLibraryBooksList() {
+        when(book.isCheckedOut()).thenReturn(true);
+        library.addBook(book);
+        assertFalse(library.listBooks().contains(book));
+    }
+
+    @Test
+    public void returnedBooksAppearInLibraryBooksList() {
+        when(book.isCheckedOut()).thenReturn(false);
+        library.addBook(book);
+        assertTrue(library.listBooks().contains(book));
+    }
+
+
+
 
 }
