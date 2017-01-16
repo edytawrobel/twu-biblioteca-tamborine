@@ -8,7 +8,9 @@ import org.mockito.MockitoAnnotations;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -18,13 +20,17 @@ import static org.mockito.Mockito.*;
 public class LibraryTest {
 
     Library library;
+    Book nineteenEightyFour;
 
     @Mock
     Book book;
 
+
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
+        nineteenEightyFour = new Book("GeorgeOrwell", "1984", "nineteenEightyFour");
+
         library = new Library();
     }
 
@@ -33,9 +39,16 @@ public class LibraryTest {
 
     }
 
+    public boolean containsInstancesOfBook(ArrayList<Book> collection) {
+        for(Book book : collection){
+            if (book instanceof Book) return true;
+        }
+        return false;
+    }
+
     @Test
     public void hasListableBooks() {
-        assertTrue(library.listBooks().contains("1984, George Orwell"));
+        assertTrue(containsInstancesOfBook(library.listBooks()));
     }
 
     @Test
@@ -45,7 +58,6 @@ public class LibraryTest {
         library.printBooksPretty();
         String expectedOutput  = "1984, George Orwell\nHave a good day, Me\n";
         assertEquals(expectedOutput, outContent.toString());
-
     }
 
 }

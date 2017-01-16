@@ -7,16 +7,17 @@ import java.util.ArrayList;
  */
 public class Library {
 
-    ArrayList<String> books;
+    ArrayList<Book> books;
+    Book nineteenEightyFour;
 
     public Library() {
-        books = new ArrayList<String>();
-        books.add("1984, George Orwell");
-        books.add("Have a good day, Me");
+        books = new ArrayList<Book>();
+        nineteenEightyFour = new Book("GeorgeOrwell", "1984", "nineteenEightyFour");
+        books.add(nineteenEightyFour);
 
     }
 
-    public ArrayList<String> listBooks() {
+    public ArrayList<Book> listBooks() {
         return books;
     }
 

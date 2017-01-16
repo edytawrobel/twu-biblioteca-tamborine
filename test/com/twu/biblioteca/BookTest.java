@@ -13,7 +13,7 @@ public class BookTest {
 
     @Before
     public void setup(){
-        book = new Book("George Orwell", "1949");
+        book = new Book("George Orwell", "1949", "nineteenEightyFour");
     }
 
     @Test

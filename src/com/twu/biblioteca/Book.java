@@ -9,11 +9,13 @@ public class Book {
 
     private final String author;
     private final String datePublished;
+    private final String title;
     private Boolean checkedOut;
 
-    public Book(String initialAuthor, String initialDatePublished){
-        author = initialAuthor;
-        datePublished = initialDatePublished;
+    public Book(String author, String datePublished, String title){
+        this.title = title;
+        this.author = author;
+        this.datePublished = datePublished;
         checkedOut = false;
     }
 

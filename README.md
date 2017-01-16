@@ -7,14 +7,13 @@ How to run this code:
 - compile with `javac BibliotecaApp.java`
 - run with `java BibliotecaApp`
 
-
 The task was based on User Stories for features that were introduced one at a time in order. So later requirements overwrite any contradictory previous ones.
 *****User stories*****
 
 * **Welcome Message**  
 - [x] As a customer, I would like to see a welcome message when I start the application, so that I feel welcome and know that Biblioteca is available.
 * **List Books** 
-- [ ] As a customer, after the welcome message appears I would like to see a list of all library books, so that I can browse for books I might want to check-out. 
+- [x] As a customer, after the welcome message appears I would like to see a list of all library books, so that I can browse for books I might want to check-out. 
 - [x]  Assume that there is a pre-existing list of books. You don't need to support adding or removing books from the library.
 * **Book Details** 
 - [x]  As a customer, I'd like the list of all books to include each books Author and Year Published, so that I can be confident that I have found the book I am looking for. 
