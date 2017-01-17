@@ -19,7 +19,7 @@ The task was based on User Stories for features that were introduced one at a ti
 - [x] As a customer, I'd like the list of all books to include each books Author and Year Published, so that I can be confident that I have found the book I am looking for. 
 - [ ] The book listing should have columns for this information.
 * **Main Menu** 
-- [ ] As a customer, instead of automatically seeing the book list, I would like to see a list of options and be able to choose one. 
+- [x] As a customer, instead of automatically seeing the book list, I would like to see a list of options and be able to choose one. 
 - [x] For now, the only option should be 'List Books'. All future options should be added to this menu also.
 * **Invalid Menu Option** 
 - [x] As a customer, I would like to be notified when I choose an invalid option with the message “Select a valid option!”, so that I can know when I need to re-enter my choice.
@@ -29,11 +29,11 @@ The task was based on User Stories for features that were introduced one at a ti
 - [x] As a librarian, I would like customers to be able to check-out a book. 
 - [x] Checked out books should not appear in the list of all library books.
 * **Successful/Unsuccessful Checkout** 
-- [ ] As a customer, I would like to know that a book has been checked out by seeing the message “Thank you! Enjoy the book”.
+- [x] As a customer, I would like to know that a book has been checked out by seeing the message “Thank you! Enjoy the book”.
 - [ ] As a customer, I would like to be notified if the book I tried to check-out is not available by seeing the message, “That book is not available.”, so that I know that I need to select a different book or fix my spelling error.
 * **Return Book** 
 - [x] As a librarian, I would like customers to be able to return a book, so that other customers can check that book out. 
 - [x] Returned books should appear in the list of library books.
 * **Successful/Unsuccessful Return** 
-- [ ] As a customer, I would like to be notified if the book I am returning belongs to this library by seeing the message, “Thank you for returning the book.”, so that I know I returned the book to the right library.
+- [x] As a customer, I would like to be notified if the book I am returning belongs to this library by seeing the message, “Thank you for returning the book.”, so that I know I returned the book to the right library.
 - [ ] As a customer, I would like to be notified if the book I am returning has not been added to this library by seeing the message, “That is not a valid book to return.”, so that I can return it to the correct library or fix my spelling error.

@@ -28,7 +28,6 @@ public class MainMenu {
         for (Object o : options) {
             System.out.println(o.toString());
         }
-
     }
 
     public void selectOption(String optionChosen) {

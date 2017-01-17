@@ -27,13 +27,10 @@ public class Library {
     }
 
     public Book getBookByName(String bookName) {
-        //find from books book where name == bookName
         System.out.println("you selected " + bookName);
         List<Book> filteredBooks = books.stream()
                 .filter( c -> c.getTitle().equals(bookName))
                 .collect(Collectors.toList());
-//        for (Object bk: filteredBooks) { return (Book)bk ;}
-//        re
         return filteredBooks.get(0);
     }
 
