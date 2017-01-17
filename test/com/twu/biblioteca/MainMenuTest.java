@@ -25,19 +25,11 @@ public class MainMenuTest {
        mainMenu = new MainMenu(sc);
     }
 
-//    @Test
-//    public void menuCanShowOptions() throws Exception {
-//        String mandatoryOption = "List Books";
-//        assertTrue(mainMenu.showOptions().containsKey(mandatoryOption));
-//    }
-
-//    @Test
-//    public void menuOptionsCanBeAdded() throws Exception {
-//        String newMenuOption = "Register";
-//        assert(!mainMenu.showOptions().contains(newMenuOption));
-//        mainMenu.addOption(newMenuOption, new Runnable(){}});
-//        assert(mainMenu.showOptions().contains(newMenuOption));
-//    }
+    @Test
+    public void menuCanShowOptions() throws Exception {
+        String mandatoryOption = "List Books";
+        assertTrue(mainMenu.showOptions().contains(mandatoryOption));
+    }
 
     @Test
     public void validMenuOptionCanBeSelected() throws Exception {
@@ -49,6 +41,21 @@ public class MainMenuTest {
         assertEquals(false,mainMenu.optionIsValid(someInvalidInput));
         String someValidInput = "List Books";
         assertEquals(true,mainMenu.optionIsValid(someValidInput));
+    }
+
+    @Test
+    public void menuOptionsCanBeAdded() throws Exception {
+        String newMenuOption = "Register To Library";
+        assert(!mainMenu.showOptions().contains(newMenuOption));
+        mainMenu.addOption(newMenuOption, getRegisterRunnable(sc));
+        assert(mainMenu.showOptions().contains(newMenuOption));
+    }
+
+    //helper method for test above
+    private Runnable getRegisterRunnable(Scanner sc) {
+        return () -> {
+            System.out.println("We can add code to get User registration details here");
+        };
     }
 
 }

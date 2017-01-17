@@ -23,11 +23,12 @@ public class MainMenu {
         options.put("Return Book", getReturnBookRunnable(sc));
     }
 
-    public void showOptions() {
+    public Set<String> showOptions() {
         Set options = this.options.keySet();
         for (Object o : options) {
             System.out.println(o.toString());
         }
+        return options;
     }
 
     public void selectOption(String optionChosen) {
