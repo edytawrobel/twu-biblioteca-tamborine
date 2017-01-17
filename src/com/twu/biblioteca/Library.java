@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -29,9 +28,13 @@ public class Library {
 
     public Book getBookByName(String bookName) {
         //find from books book where name == bookName
-        Predicate<Book> bookPredicate = bk -> bk.getTitle() == bookName;
-        Book obj = books.stream().filter(bookPredicate).findFirst().get();
-        return obj;
+        System.out.println("you selected " + bookName);
+        List<Book> filteredBooks = books.stream()
+                .filter( c -> c.getTitle().equals(bookName))
+                .collect(Collectors.toList());
+//        for (Object bk: filteredBooks) { return (Book)bk ;}
+//        re
+        return filteredBooks.get(0);
     }
 
     public void printBooksPretty() {
