@@ -48,7 +48,7 @@ public class LibraryTest {
 
     @Test
     public void hasListableBooks() {
-        assertTrue(containsInstancesOfBook(library.listBooks()));
+        assertTrue(containsInstancesOfBook(library.listAvailableBooks()));
     }
 
     @Test
@@ -64,14 +64,14 @@ public class LibraryTest {
     public void checkedOutBooksDoNotAppearInLibraryBooksList() {
         when(book.isCheckedOut()).thenReturn(true);
         library.addBook(book);
-        assertFalse(library.listBooks().contains(book));
+        assertFalse(library.listAvailableBooks().contains(book));
     }
 
     @Test
     public void returnedBooksAppearInLibraryBooksList() {
         when(book.isCheckedOut()).thenReturn(false);
         library.addBook(book);
-        assertTrue(library.listBooks().contains(book));
+        assertTrue(library.listAvailableBooks().contains(book));
     }
 
 

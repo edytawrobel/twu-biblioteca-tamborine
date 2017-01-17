@@ -36,10 +36,12 @@ public class Book {
     }
 
     public void checkOut() {
+        System.out.println("checkout successful!");
         checkedOut = true;
     }
 
     public void returnBook() {
+        System.out.println("return successful!");
         checkedOut = false;
     }
 }

@@ -18,7 +18,7 @@ public class Library {
         books.add(nineteenEightyFour);
     }
 
-    public List<Book> listBooks() {
+    public List<Book> listAvailableBooks() {
         return filterBooks(books);
     }
 
@@ -26,7 +26,13 @@ public class Library {
         books.add(book);
     }
 
+    public Book getBook(String bookName) {
+        //find from books book where name == bookName
+        return null;
+    }
+
     public void printBooksPretty() {
+        List<Book> books = listAvailableBooks();
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
             System.out.format("%32s%32s%8s", book.getTitle(), book.getAuthor(), book.getDatePublished());

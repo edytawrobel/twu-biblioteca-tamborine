@@ -24,24 +24,18 @@ public class BibliotecaAppTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Mock MainMenu menu;
+
     BibliotecaApp app;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        app = new BibliotecaApp(menu);
+        app = new BibliotecaApp();
     }
 
     @After
     public void tearDown() throws Exception {
         //note to self: look up what this does !!!!
-    }
-
-    @Test
-    public void libraryBooksCanBeListed() throws Exception {
-        ArrayList<String> bookList = new ArrayList<String>();
-        bookList.add("first book");
-        assertEquals(bookList, app.listBooks());
     }
 
     @Test
@@ -56,8 +50,10 @@ public class BibliotecaAppTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         app.askUserToSelectOptionUntilQuits(in);
-        String expectedOutput  = "Enter an option in the list or 'quit'\ninvalid option try again\nEnter an option in the list or 'quit'\n";
-        // Notice the \n for new line. PAULO HELP THE ABOVE LINE IS REALLY UGLY...
+        String expectedOutput  = "Enter an option in the list or 'quit'\n" +
+                "invalid option try again\n" +
+                "Enter an option in the list or 'quit'\n";
+        // Notice the \n for new line. PAULO HELP THE ABOVE LINE IS sorta UGLY...
         assertEquals(expectedOutput, outContent.toString());
     }
 
