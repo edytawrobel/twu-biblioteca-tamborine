@@ -13,9 +13,12 @@ public class BibliotecaApp {
     private Scanner sc;
 
     public BibliotecaApp() {
+        this(null);
+    }
+
+    public BibliotecaApp(MainMenu menu) {
         sc = new Scanner(System.in);
-        this.menu = new MainMenu(sc);
-//        (menu == null) ? new MainMenu(sc) : menu
+        this.menu = (menu == null) ? new MainMenu(sc) : menu;
     }
 
     public static void main(String[] args) {
@@ -26,9 +29,6 @@ public class BibliotecaApp {
         app.askUserToSelectOptionUntilQuits(System.in);
     }
 
-    private MainMenu getMenu() {
-        return menu;
-    }
 
     public void askUserToSelectOptionUntilQuits(InputStream in) {
         Scanner sc = new Scanner(in);
@@ -36,7 +36,6 @@ public class BibliotecaApp {
         do {
             printOut(System.out, "Enter an option in the list or 'quit'");
             userInput = getInput(sc);
-            System.out.print(userInput);
             if (menu.optionIsValid(userInput) || userInput.equals("quit")) {
                 menu.selectOption(userInput);
             } else {

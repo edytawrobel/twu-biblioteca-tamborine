@@ -30,7 +30,7 @@ public class BibliotecaAppTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        app = new BibliotecaApp();
+        app = new BibliotecaApp(menu);
     }
 
     @After
@@ -71,7 +71,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void askUserToSelectOptionUntilQuitsMethodGivesUserInputToMenuToSelectOption() {
+    public void selectOptionIsCalledByMainLoop() {
         InputStream in = new ByteArrayInputStream("List Books\nquit".getBytes());
         when(menu.optionIsValid(anyString())).thenReturn(true);
         app.askUserToSelectOptionUntilQuits(in);

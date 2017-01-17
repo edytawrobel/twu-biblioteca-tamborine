@@ -31,6 +31,9 @@ public class MainMenu {
     }
 
     public void selectOption(String optionChosen) {
+        if (optionChosen.equals("quit")) {
+            return;
+        }
         options.get(optionChosen).run();
     }
 
