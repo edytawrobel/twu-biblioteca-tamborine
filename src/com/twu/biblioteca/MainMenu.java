@@ -2,10 +2,7 @@ package com.twu.biblioteca;
 
 import sun.applet.Main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.function.Predicate;
 
 import static java.lang.System.*;
@@ -27,8 +24,11 @@ public class MainMenu {
     }
 
     public void showOptions() {
-        String strOptions = this.options.toString();
-        System.out.println(strOptions);
+        Set options = this.options.keySet();
+        for (Object o : options) {
+            System.out.println(o.toString());
+        }
+
     }
 
     public void selectOption(String optionChosen) {
@@ -49,15 +49,17 @@ public class MainMenu {
 
     private Runnable getReturnBookRunnable(Scanner sc) {
         return () -> {
-            String input = getInput(sc);
-            library.getBook(input).returnBook();
+            System.out.println("Type the name of the book you want to return: ");
+            String name = getInput(sc);
+            library.getBookByName(name).returnBook();
         };
     }
 
     private Runnable getCheckoutBookRunnable(Scanner sc) {
         return () -> {
-            String input = getInput(sc);
-            library.getBook(input).checkOut();
+            System.out.println("Type the name of the book you want to checkout: ");
+            String name = getInput(sc);
+            library.getBookByName(name).checkOut();
         };
     }
 

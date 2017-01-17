@@ -22,7 +22,7 @@ public class BibliotecaApp {
         BibliotecaApp app = new BibliotecaApp();
         System.out.println("Welcome to Biblioteca! Please select an option from the menu");
         System.out.println(app.menu);
-        //        menu.showOptions();
+        app.menu.showOptions();
         app.askUserToSelectOptionUntilQuits(System.in);
     }
 
