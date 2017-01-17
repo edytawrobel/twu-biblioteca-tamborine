@@ -80,7 +80,6 @@ public class BibliotecaAppTest {
         verify(menu).selectOption("quit");
     }
 
-
 }
 
 

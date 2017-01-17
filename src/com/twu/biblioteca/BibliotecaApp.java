@@ -36,6 +36,7 @@ public class BibliotecaApp {
         do {
             printOut(System.out, "Enter an option in the list or 'quit'");
             userInput = getInput(sc);
+            System.out.print(userInput);
             if (menu.optionIsValid(userInput) || userInput.equals("quit")) {
                 menu.selectOption(userInput);
             } else {

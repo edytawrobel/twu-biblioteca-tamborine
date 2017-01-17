@@ -7,7 +7,8 @@ How to run this code:
 - compile with `javac BibliotecaApp.java`
 - run with `java BibliotecaApp`
 
-The task was based on User Stories for features that were introduced one at a time in order. So later requirements overwrite any contradictory previous ones.
+The task was based on User Stories for features that were introduced one at a time in order. 
+So later requirements overwrite any contradictory previous ones.
 *****User stories*****
 
 * **Welcome Message**  
